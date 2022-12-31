@@ -25,6 +25,7 @@ public class TollRateController {
 
     @RequestMapping("/tollrate/{stationId}")
     public TollRate GetTollRate(@PathVariable int stationId) {
+        System.out.println("stationId: " + stationId);
         return tollrates.stream().filter(rate -> stationId == rate.getStationId()).findAny().orElse(new TollRate());
     }
     
