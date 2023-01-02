@@ -13,11 +13,12 @@ public class CustomHealthCheck implements HealthIndicator{
     public Health health() {
         System.out.println("Health check performed, error code is: " + errorCode);
 
-        errorCode++;
-        if(errorCode > 2 && errorCode < 4){
-            return Health.down().withDetail("Custom health error code", errorCode).build();
-        }else{
-            return Health.up().build();
-        }
+        // errorCode++;
+        // if(errorCode > 2 && errorCode < 4){
+        //     return Health.down().withDetail("Custom health error code", errorCode).build();
+        // }else{
+        //     return Health.up().build();
+        // }
+        return Health.up().build();
     }
 }
