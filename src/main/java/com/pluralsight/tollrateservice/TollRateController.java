@@ -28,5 +28,12 @@ public class TollRateController {
         System.out.println("stationId: " + stationId);
         return tollrates.stream().filter(rate -> stationId == rate.getStationId()).findAny().orElse(new TollRate());
     }
+
+    @RequestMapping("/tollrateslow/{stationId}")
+    public TollRate GetTollRateSlow(@PathVariable int stationId) throws InterruptedException {
+        System.out.println("stationId: " + stationId);
+        Thread.sleep(3000);
+        return tollrates.stream().filter(rate -> stationId == rate.getStationId()).findAny().orElse(new TollRate());
+    }
     
 }
